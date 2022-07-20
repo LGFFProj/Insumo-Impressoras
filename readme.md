@@ -1,0 +1,1 @@
+Estou tentando criar uma pagina que utiliza SNMP para pegar dados das impressoras do meu ambiente de trabalho.
