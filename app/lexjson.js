@@ -7,13 +7,13 @@ const oids = [
     '1.3.6.1.2.1.43.11.1.1.8.1.3',
     '1.3.6.1.2.1.43.11.1.1.9.1.1',
     '1.3.6.1.2.1.43.11.1.1.9.1.2',
-    '1.3.6.1.2.1.43.11.1.1.9.1.3'
-]
+    '1.3.6.1.2.1.43.11.1.1.9.1.3',
+    '1.3.6.1.4.1.641.6.2.3.1.4.1',
+    '1.3.6.1.2.1.43.5.1.1.16.1'
+];
 
-let resultado = [];
-
-
-function pegaStatus(ips){
+function pegaStatus(ips,callback){
+    let resultado = [];
     //Criar a Sessão SNMP com o IP providenciado
     let session = snmp.createSession(ips, 'public');
     session.get(oids, function (error, varbinds) {
@@ -29,13 +29,16 @@ function pegaStatus(ips){
             };
         };
         session.close();
-        //Pega o Array que contem os dados coletados e traduz em porcentagem
-        //JSON.stringify(Object.assign({},resultado));
+        //Pega o Array a insere no objeto abaixo
         let objResposta = {};
-        objResposta.imagem = 100*(resultado[3]*10)/(resultado[0]*10);
-        objResposta.toner = 100*(resultado[4]*10)/(resultado[1]*10);
-        objResposta.manutencao = 100*(resultado[5]*10)/(resultado[2]*10);
-        return (objResposta);
+        objResposta.imagem = 100*(resultado[3]*10)/(resultado[0]*10) + '%';
+        objResposta.toner =  100*(resultado[4]*10)/(resultado[1]*10) + '%';
+        objResposta.manutencao =  100*(resultado[5]*10)/(resultado[2]*10) + '%';
+        objResposta.modelo = resultado[6].toString('utf8');
+        objResposta.nome = resultado [7].toString('utf8');
+        //console.log(objResposta);
+
+        callback(objResposta);
 
     });
     
@@ -44,7 +47,6 @@ session.trap (snmp.TrapType.LinkDown, function (error){
         console.error (error);
     }
 });
-
 }
 
 module.exports = { pegaStatus };
