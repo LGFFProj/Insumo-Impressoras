@@ -10,3 +10,4 @@ Etapas do projeto;
     % de Kit Imagem
     % de Kit Manutenção.
             
+* Começar com o ExpressJS fazer a pagina principal. (25/07)

@@ -11,3 +11,4 @@ impressoras.forEach(x => {
         statusImpressoras.push(resultado);
    });
 });
+
