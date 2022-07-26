@@ -1,12 +1,16 @@
 const lexmark = require('./query');
 
-let impressoras = [
-    '1.1.1.1',
-    '2.2.2.2',
-    '3.3.3.3'
-]
+
 function resposta(callback){
+
+    let impressoras = [
+        '1.1.1.1',
+        '2.2.2.2',
+        '3.3.3.3'
+    ]
+
     let arrStatus = [];
+    
     impressoras.forEach( ip => lexmark.query(ip, function(resultado){
         arrStatus.push({
             imagem : 100*(resultado[3]*10)/(resultado[0]*10) + '%',
