@@ -12,11 +12,12 @@ const oids = [
     '1.3.6.1.2.1.43.5.1.1.16.1'
 ];
 
-function pegaStatus(ips, callback){
+function snmpQuery(ips, callback){
     let resultado = [];
     //Criar a Sessão SNMP com o IP providenciado
     let session = snmp.createSession(ips, 'public');
     session.get(oids, function (error, varbinds) {
+        //Escopo
         if (error) {
             console.error(error);
         } else {
@@ -29,16 +30,9 @@ function pegaStatus(ips, callback){
             };
         };
         session.close();
-        objResposta = {
-            imagem : 100*(resultado[3]*10)/(resultado[0]*10) + '%',
-            toner :  100*(resultado[4]*10)/(resultado[1]*10) + '%',
-            manutencao :  100*(resultado[5]*10)/(resultado[2]*10) + '%',
-            modelo : resultado[6].toString('utf8'),
-            nome : resultado [7].toString('utf8'),
-        };
 
-        callback(objResposta);
-
+        callback(resultado);
+        //Escopo
     });
 session.trap (snmp.TrapType.LinkDown, function (error){
     if (error){
@@ -46,11 +40,10 @@ session.trap (snmp.TrapType.LinkDown, function (error){
     }
 });
 
+};
 
 
-}
-
-module.exports = { pegaStatus };
+module.exports = { snmpQuery };
 
 
 

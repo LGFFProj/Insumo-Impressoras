@@ -25,16 +25,3 @@ app.listen(PORTA, () => {
 
 
 
-//Implementas isso aqui dentro das rotas requisitadas.
-/*
-
-let statusImpressoras = [];
-
-impressoras.forEach(x => {
-    let objResposta = app.pegaStatus(x, function(resultado){
-        return resultado;
-   });
-});
-*/
-
-
