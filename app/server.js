@@ -4,7 +4,7 @@ const PORTA = 8080;
 const getStatus = require('./impressoras');
 
 app.get('/', (req,res) => {
-    res.sendFile("C:\\Code\\gitcodes\\Insumo-Impressoras\\web\\dashboard.html");
+    res.sendFile("D:\\Luiz\\Codes\\Insumo Impressoras\\web\\dashboard.html");
 });
 
 app.post('/cadastro', (req,res) => {
