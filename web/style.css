@@ -5,17 +5,20 @@ body{
 .container{
     border: 1px dashed white;
     margin: auto;
-    height: 500px;
+    height: 80%;
     width: 80%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     display: flex;
+    flex-wrap: wrap;
 }
 
-.statusPrinter{
-    border: 1px dashed white;
-    
-    width: 50px;
+.printer{
+    border: 1px solid orange;
+    border-radius: 8px;
+    height: 200px;
+    width: 200px;
+    margin: 10px 10px;
 }
