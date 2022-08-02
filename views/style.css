@@ -1,0 +1,26 @@
+body{
+    background-color: black;
+
+}
+.container{
+    border: 1px dashed white;
+    margin: auto;
+    height: 80%;
+    width: 83%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.printer{
+    border: 1px solid orange;
+    border-radius: 8px;
+    height: 200px;
+    width: 200px;
+    margin: 10px 10px;
+    color: white;
+}
