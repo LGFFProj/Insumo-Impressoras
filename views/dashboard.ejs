@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +7,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="printer"> <%= teste[0].endereco %></div>
-        <div class="printer"> <%= teste[1].endereco %></div>
-        <div class="printer"></div>
-        <div class="printer"></div>
-        <div class="printer"></div>
-        <div class="printer"></div>
-        <div class="printer"></div>
-        <div class="printer"></div>
-        <div class="printer"></div>
-        <div class="printer"></div>
+        <%resultado.forEach(element => {
+            %><div class="printer">
+                <div class="info">
+                <%= 'Toner: ' + element.toner %>%<br>
+                <%= 'Manutenção: ' + element.manutencao %>%<br>
+                <%= 'Imagem: ' + element.imagem %>%<br>
+                <%= 'Modelo: ' + element.modelo %><br>
+                <%= 'Nome: ' + element.nome %><br>
+                <%= 'Endereço: ' + element.endereco %>
+                </div> 
+            %></div>
+            <%
+        })%>
     </div>
 
     
 </body>
-</html>

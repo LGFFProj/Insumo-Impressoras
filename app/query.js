@@ -12,11 +12,11 @@ const oids = [
     '1.3.6.1.2.1.43.5.1.1.16.1'
 ];
 
-function snmpQuery(ips, callback){
+async function snmpQuery(ips, callback){
     let resultado = [];
     //Criar a Sessão SNMP com o IP providenciado
     let session = snmp.createSession(ips, 'public');
-    session.get(oids, function (error, varbinds) {
+    await session.get(oids, function (error, varbinds) {
         //Escopo
         if (error) {
             console.error(error);
