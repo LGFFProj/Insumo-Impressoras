@@ -19,8 +19,6 @@ app.get('/', (req,res) => {
 })
 
 
-
-
 app.listen(PORTA, () => {
     console.log(`Servidor iniciado na ports ${PORTA}`);
 })

@@ -8,18 +8,34 @@
 <body>
     <div class="container">
         <%resultado.forEach(element => {
-            %><div class="printer">
-                <div class="info">
-                <%= 'Toner: ' + element.toner %>%<br>
-                <%= 'Manutenção: ' + element.manutencao %>%<br>
-                <%= 'Imagem: ' + element.imagem %>%<br>
-                <%= 'Modelo: ' + element.modelo %><br>
-                <%= 'Nome: ' + element.nome %><br>
-                <%= 'Endereço: ' + element.endereco %>
+            if ( element.status == 'Offline' ){ %>
+                <div class="printer">
+                    <div class="off">
+                        <p>IMPRESSORA OFFLINE</p>
+                    </div>
                 </div> 
-            %></div>
+            <%}else {
+
+            %><div class="printer">
+                <div class="on">
+                    <div class="info">
+                        Nome: <%=element.nome%><br>
+                        Modelo: <%=element.modelo%><br>
+                        Endereço: <%=element.endereco%><br>
+                        Conectada: <%=element.status%> <br>
+                    </div>
+                    <div class="status">
+                        Toner: <div class="bars" style="border-radius: 4px;background: linear-gradient(90deg, rgba(193,7,7,1) 0%, rgba(9,96,121,1) 35%, rgba(0,255,12,1) 100%);;height:16px;width:<%=element.toner%>%;"><%=element.toner%> % </div>
+                        <div class="bars">Manutenção: <%=element.manutencao%> % </div>
+                        <div class="bars">Imagem: <%=element.imagem%> %</div>
+                    </div>
+                </div> 
+            </div>
             <%
-        })%>
+        }})
+    
+        
+        %>
     </div>
 
     

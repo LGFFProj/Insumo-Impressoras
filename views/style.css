@@ -16,11 +16,35 @@ body{
     overflow-y: scroll;
 }
 
-.printer{
-    border: 1px solid orange;
+.printer .on{
+    border: 1px solid green;
     border-radius: 8px;
     height: 200px;
     width: 200px;
     margin: 10px 10px;
     color: white;
+}
+
+.printer .on .info{
+    border: 1px dashed blue;
+    position: relative;
+    top: 67%;
+    font-size: small;
+    
+}
+
+.printer .on .status{
+    border: 1px dashed orange;
+    position: relative;
+    top: -31%;
+    font-size: small;
+}
+
+.printer .off{
+    border: 1px solid red;
+    border-radius: 8px;
+    height: 200px;
+    width: 200px;
+    margin: 10px 10px;
+    color: red;
 }
