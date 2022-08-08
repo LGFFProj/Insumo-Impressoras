@@ -7,23 +7,25 @@
 </head>
 <body>
     <div class="container">
-        <div class="lista">
-            <%resultado.forEach(element => {%>
-                <div class="itens">
-                    <span>Hostname: <%=element.nome%></span>
-                    <span>Modelo: <%=element.modelo%></span>
-                    <span>IP: <%=element.endereco%></span>
-                    <span>Status: <%=element.status%></span>
+        <div id="lst">
+                <div id="listaTitulo">IMPRESSORAS CADASTRADAS</div>
+                <div class="lista">
+                <%resultado.forEach(element => {%>
+                    <div class="itens">
+                        <span id="hostname">Hostname:<%=element.nome%></span>
+                        <span id="modelo">Modelo:<%=element.modelo%></span>
+                        <span id="endereco">IP:<%=element.endereco%></span>
+                        <span id="status">Status:<%=element.status%> </span>
 
-                </div>
-            <%});%>
+                    </div>
+                <%});%></div>
         </div>
         <div class="status">
             <div>
                 <div id="alerta">ALERTA</div>
                 <div class="alerta">
                     <%resultado.forEach(element => {
-                        if (element.toner <= 20){%>
+                        if (element.toner <= 10){%>
                         <div class="printer">
                             <span>IP: <%=element.endereco%></span><br>
                             <span>Toner: <%=element.toner%></span>%<br>
@@ -37,7 +39,7 @@
                 <div id="atencao">ATENÇÃO</div>
                 <div class="atencao">
                     <%resultado.forEach(element => {
-                        if ((element.toner > 20) && (element.toner <= 100)){%>
+                        if ((element.toner > 10) && (element.toner <= 20)){%>
                         <div class="printer">
                             <span>IP: <%=element.endereco%></span><br>
                             <span>Toner: <%=element.toner%></span>%<br>
