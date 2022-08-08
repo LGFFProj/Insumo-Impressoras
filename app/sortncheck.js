@@ -4,7 +4,9 @@ const getStatus = require('./impressoras');
 //mas o padrão vai ser pelo menor toner primeiro.
 function sort (callback){
     getStatus.resposta(function (resposta){
-        let resultado = resposta.sort((a, b) => a.toner - b.toner)
+        
+        //Ordem de Cadastro
+        let resultado = resposta.sort((a, b) => a.ordem - b.ordem)
         
         callback(resultado);
     })

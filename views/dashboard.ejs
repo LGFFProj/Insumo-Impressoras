@@ -3,39 +3,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Dashboard</title>
+    <title>Impressoras - HRA</title>
 </head>
 <body>
     <div class="container">
-        <%resultado.forEach(element => {
-            if ( element.status == 'Offline' ){ %>
-                <div class="printer">
-                    <div class="off">
-                        <p>IMPRESSORA OFFLINE</p>
-                    </div>
-                </div> 
-            <%}else {
+        <div class="lista">
+            <%resultado.forEach(element => {%>
+                <div class="itens">
+                    <span>Hostname: <%=element.nome%></span>
+                    <span>Modelo: <%=element.modelo%></span>
+                    <span>IP: <%=element.endereco%></span>
+                    <span>Status: <%=element.status%></span>
 
-            %><div class="printer">
-                <div class="on">
-                    <div class="info">
-                        Nome: <%=element.nome%><br>
-                        Modelo: <%=element.modelo%><br>
-                        Endereço: <%=element.endereco%><br>
-                        Conectada: <%=element.status%> <br>
-                    </div>
-                    <div class="status">
-                        Toner: <div class="bars" style="border-radius: 4px;background: linear-gradient(90deg, rgba(193,7,7,1) 0%, rgba(9,96,121,1) 35%, rgba(0,255,12,1) 100%);;height:16px;width:<%=element.toner%>%;"><%=element.toner%> % </div>
-                        <div class="bars">Manutenção: <%=element.manutencao%> % </div>
-                        <div class="bars">Imagem: <%=element.imagem%> %</div>
-                    </div>
-                </div> 
+                </div>
+            <%});%>
+        </div>
+        <div class="status">
+            <div>
+                <div id="alerta">ALERTA</div>
+                <div class="alerta">
+                    <%resultado.forEach(element => {
+                        if (element.toner <= 20){%>
+                        <div class="printer">
+                            <span>IP: <%=element.endereco%></span><br>
+                            <span>Toner: <%=element.toner%></span>%<br>
+                            <span>Kit Imagem: <%=element.imagem%></span>%<br>
+                            <span>Manutenção: <%=element.manutencao%></span>%<br>
+                        </div>
+                    <%}});%>
+                </div>
             </div>
-            <%
-        }})
-    
-        
-        %>
+            <div>
+                <div id="atencao">ATENÇÃO</div>
+                <div class="atencao">
+                    <%resultado.forEach(element => {
+                        if ((element.toner > 20) && (element.toner <= 100)){%>
+                        <div class="printer">
+                            <span>IP: <%=element.endereco%></span><br>
+                            <span>Toner: <%=element.toner%></span>%<br>
+                            <span>Kit Imagem: <%=element.imagem%></span>%<br>
+                            <span>Manutenção: <%=element.manutencao%></span>%<br>
+                        </div>
+                    <%}});%>
+                </div>
+            </div>    
+        </div>
     </div>
 
     

@@ -1,50 +1,83 @@
 body{
     background-color: black;
-
+    padding: 0%;
+    margin: 0%;
 }
-.container{
-    border: 1px dashed white;
-    margin: auto;
-    height: 80%;
-    width: 83%;
+
+.container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    border: 3px solid silver;
     display: flex;
-    flex-wrap: wrap;
+    width: 98%;
+    border-radius: 8px;
+
+}
+
+.container .lista{
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 8%;
+    margin-left: 1%;
+    border: 1px dashed orange;
+    height: 85vh;
+    width: 120vh;
+    color: orange;
     overflow-y: scroll;
 }
 
-.printer .on{
-    border: 1px solid green;
-    border-radius: 8px;
-    height: 200px;
-    width: 200px;
-    margin: 10px 10px;
-    color: white;
+.itens{
+    border: 1px solid white;
+    border-radius: 1px;
+    display: flex;
+    justify-content: space-around;
 }
 
-.printer .on .info{
-    border: 1px dashed blue;
-    position: relative;
-    top: 67%;
-    font-size: small;
-    
+.container .status{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
 }
 
-.printer .on .status{
-    border: 1px dashed orange;
-    position: relative;
-    top: -31%;
-    font-size: small;
-}
-
-.printer .off{
-    border: 1px solid red;
-    border-radius: 8px;
-    height: 200px;
-    width: 200px;
-    margin: 10px 10px;
+#alerta{
     color: red;
+    margin: auto;
+    text-align: center;
+}
+
+.container .alerta{
+    border: 1px dashed red;
+    height: 280px;
+    width: 350px;
+    color: red;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    border-radius: 6px;
+}
+
+.container .atencao{
+    border: 1px dashed yellow;
+    height: 280px;
+    width: 350px;
+    color: yellow;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    border-radius: 6px;
+}
+
+.printer{
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 125px;
+    width: 150px;
+    margin-top: 7px;
+    margin-left: 10px;
 }

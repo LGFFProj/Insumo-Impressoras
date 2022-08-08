@@ -16,7 +16,11 @@ function resposta(callback){
         lexmark.snmpQuery(ip, function(resultado){
             //Processar impressoras desconectadas
             if ( typeof(resultado[6]) === "undefined") {
-                arrStatus.push({status : 'Offline'});
+                arrStatus.push({
+                    status : 'Offline',
+                    endereco: ip
+
+                });
             } else {
                 arrStatus.push({
                     imagem : 100*(resultado[3]*10)/(resultado[0]*10),
@@ -25,7 +29,8 @@ function resposta(callback){
                     modelo : resultado[6].toString('utf8'),
                     nome : resultado [7].toString('utf8'),
                     endereco: ip,
-                    status : 'Online'
+                    status : 'Online',
+                    ordem: impressoras.indexOf(ip)
                 })
             }
             //Roda o Callback quando todas as repostas forem coletadas
