@@ -1,0 +1,37 @@
+.tabs{
+    font : 1em sans-serif;
+    background: #2b63cb;
+    margin: 0;
+    display: flex;
+    position: absolute;
+    top: 6.6vh;
+    left: 15vh;
+    width: 44.5vh;
+    height: 30px;
+    justify-content: space-around;
+    padding: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.tabs li{
+    list-style: none;
+    width: 100px;
+    text-align: center;
+    line-height: 30px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    
+    
+}
+
+.tabs a{
+    color:black;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.tabs li:hover{
+    background-color: lightblue;
+}
