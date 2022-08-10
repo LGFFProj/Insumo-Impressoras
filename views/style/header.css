@@ -1,11 +1,11 @@
 .tabs{
     font : 1em sans-serif;
-    background: #2b63cb;
     margin: 0;
     display: flex;
     position: absolute;
     top: 6.6vh;
-    left: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
     width: 44.5vh;
     height: 30px;
     justify-content: space-around;
@@ -14,24 +14,25 @@
     border-top-right-radius: 15px;
 }
 
-.tabs li{
-    list-style: none;
+.tabs a{
+    background: #2b63cb83;
     width: 100px;
     text-align: center;
     line-height: 30px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    
-    
-}
-
-.tabs a{
     color:black;
     text-decoration: none;
     font-style: italic;
     font-weight: bold;
+    border-top: 2px solid #2b63cb;
+    border-right: 2px solid #2b63cb;
+    border-left: 2px solid #2b63cb;
+    z-index: 1;
 }
 
-.tabs li:hover{
-    background-color: lightblue;
+.tabs a:hover{
+    background-color: lightblue !important;
+    width: 130px;
 }
+

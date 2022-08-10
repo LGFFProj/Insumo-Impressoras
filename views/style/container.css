@@ -2,10 +2,8 @@ body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-
 .container{
     background-color: #c2c2c2;
-    
     margin: auto;
     width: 98%;
     height: 88vh;
@@ -16,4 +14,66 @@ body{
     border-radius: 10px;
     color: #2c3e50;
     text-align: center;
+    display: flex;
 }
+
+#dashboard_alertas{
+    border: 1px dashed orange;
+    width: 70%;
+    
+}
+
+.titulo{
+    border: 1px solid black;
+}
+
+#titulo_lista{
+    position: relative;
+    top: 3%;
+    font-size: larger;
+}
+
+.pesquisa{
+    position: relative;
+    border: 1px solid black;
+    top: 3.9vh;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 4px
+}
+
+.lista{
+    position: relative;
+    top: 47%;
+    transform: translateY(-50%);
+    border: 1px solid black;
+    border-radius: 2px;
+    margin: 1px;
+    overflow-y: scroll;
+    height: 85%;
+    width: 90%;
+    margin: auto;
+
+}
+.lista_itens{
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 5%;
+}
+
+.lista_itens div{
+    display: flex;
+}
+
+.lista_itens li{
+    list-style: none;
+}
+
+
+#dashboard_lista{
+    border: 1px dashed green;
+    width: 30%;
+}
+

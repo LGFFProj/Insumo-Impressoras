@@ -16,29 +16,47 @@
     <!--MENU-->
     <div class="container-tab">
         <ul class="tabs">
-            <li>
-                <a href="#" id="dashboard">Dashboard</a>
-            </li>
-            <li>
-                <a href="#" id="cadastro">Cadastro</a>
-            </li>
-            <li>
-                <a href="#" id="relatorio">Relatório</a>
-            </li>
+            <a href="#" id="dashboard">
+                Dashboard
+            </a>
+            <a href="#" id="cadastro">
+                Cadastro
+            </a>
+            <a href="#" id="relatorio">
+                Relatório
+            </a>
         </ul>
     </div>
     <!--Conteudo do Cadastro -->
     <div id="container_cadastro" class="container cadastro">
-        CADASTRO
+        Conteudo do Cadastro
     </div>
     <!--Conteudo do Relatório -->
     <div id="container_relatorio" class="container relatorio">
-        MEUS OVOS
+        Conteudo do Relátorio
     </div>
     <!--Conteudo Dashboard -->
     <div id="container_dashboard" class="container dashboard">
-        DASHBOARD
+        <div id="dashboard_alertas">
+            <div id="titulo_alerta" class="titulo">ALERTAS</div>
+            <div class="alertas">
+                EJS dos alertas
+            </div>
+        </div>
+        <div id="dashboard_lista">
+            <div id="titulo_lista" class="titulo">Impressoras Cadastradas</div>
+            <!--Lista das Impressoras Cadastradas-->
+            <input id="input" type="text" class="pesquisa" placeholder="Digite o item"  onkeyup="barra()" >
+            <div class="lista">
+                <ul id="UL" class="lista_itens">
+                    <div>Setor:&nbsp<li id="setor">DEP T.I</li></div>
+                    <div>Status:&nbsp<span>Online</span></div>
+                </ul>   
+            </div>
+
+        </div>
     </div>
     <script src="index.js"></script>
+    <script src="barra.js"></script>
 </body>
 </html>
