@@ -38,22 +38,36 @@
     <!--Conteudo Dashboard -->
     <div id="container_dashboard" class="container dashboard">
         <div id="dashboard_alertas">
-            <div id="titulo_alerta" class="titulo">ALERTAS</div>
+            <div id="titulo_alerta">ALERTAS</div>
             <div class="alertas">
-                EJS dos alertas
+                <% resultado.forEach(element => {%>
+                    <div class="itens">
+                        <ul>
+                            <span>Toner:&nbsp</span><br><li><%=element.toner%>%<b style="width:<%=element.toner%>%;">&nbsp</b></li>
+                            <span>Manutenção:&nbsp</span><br><li><%=element.manutencao%>%<b style="width:<%=element.manutencao%>%;" >&nbsp</b></li>
+                            <span>Imagem:&nbsp</span><br><li><%=element.imagem%>%<b style="width:<%=element.imagem%>%;">&nbsp</b></li>
+                            <span id="item_setor"><%=element.local%></span>
+                            <span id="item_ip"><%=element.endereco%></span>
+                        </ul>
+                    </div>
+                <%}); %>
+                
+                    
             </div>
         </div>
         <div id="dashboard_lista">
-            <div id="titulo_lista" class="titulo">Impressoras Cadastradas</div>
+            <div id="titulo_lista">Impressoras Cadastradas</div>
             <!--Lista das Impressoras Cadastradas-->
-            <input id="input" type="text" class="pesquisa" placeholder="Digite o item"  onkeyup="barra()" >
-            <div class="lista">
-                <ul id="UL" class="lista_itens">
-                    <div>Setor:&nbsp<li id="setor">DEP T.I</li></div>
-                    <div>Status:&nbsp<span>Online</span></div>
-                </ul>   
+            <input id="input" class="pesquisa" type="text" placeholder="Busca por Setor"  onkeyup="barra()" >
+            <div id="itens" class="lista">
+                <!--EJS Repetir para todos os itens do Array-->
+                <% resultado.forEach(element => {%>
+                    <ul class="lista_itens">
+                        <div>Setor:&nbsp<li id="setor"><%=element.local%></li></div>
+                        <div>Status:&nbsp<span class="<%= element.status === 'Online' ? 'online' : 'offline' %>"><%=element.status%></span></div>
+                    </ul>
+                    <%}); %>
             </div>
-
         </div>
     </div>
     <script src="index.js"></script>

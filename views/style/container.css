@@ -23,9 +23,7 @@ body{
     
 }
 
-.titulo{
-    border: 1px solid black;
-}
+/*Estilizar a Lista de Impressoras*/
 
 #titulo_lista{
     position: relative;
@@ -54,13 +52,21 @@ body{
     height: 85%;
     width: 90%;
     margin: auto;
-
 }
+
+.lista::-webkit-scrollbar{
+    display: none;
+}
+
 .lista_itens{
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     display: flex;
     justify-content: space-around;
     padding-left: 5%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 .lista_itens div{
@@ -71,9 +77,92 @@ body{
     list-style: none;
 }
 
-
 #dashboard_lista{
     border: 1px dashed green;
     width: 30%;
 }
 
+.online{
+    color: green;
+}
+.offline{
+    color: red;
+}
+
+/*Estilizar a Tela de Alertas*/
+
+.alertas{
+    position: relative;
+    border: 5px solid darkred;
+    max-width: 80%;
+    width: fit-content;
+    overflow-y: scroll;
+    max-height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+    justify-content: center;
+}
+.alertas::-webkit-scrollbar{
+    display: none;
+}
+
+.alertas .itens{
+    border: 3px solid yellow;
+    margin: 15px;
+    width: 20vh;
+    height: 29vh;
+    text-align: left;
+    display: flex;
+    border-radius: 12px;
+
+}
+
+.itens ul{
+    margin: 0;
+    padding: 0;
+}
+
+.itens ul span{
+    position: relative;
+    left: 5%;
+    font-size: large;
+    color: black;
+}
+
+.itens li{
+    list-style: none;
+    width: 18vh;
+    left: 5%;
+    border: 1px solid black;
+    border-radius: 1px;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    height: 2.7vh;
+    background-color: rgba(61, 61, 61, 0.658);
+    z-index: -2;
+}
+
+.itens b{
+    background-color: black;
+    position: relative;
+    display: flex;
+    top: -2.9vh;
+    z-index: -1;
+}
+
+#item_setor{
+    position: relative;
+    top: 2%;
+}
+
+#item_ip{
+    position: relative;
+    top: 2%;
+}

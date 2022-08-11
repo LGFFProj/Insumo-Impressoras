@@ -29,7 +29,8 @@ function resposta(callback){
                     nome : resultado [7].toString('utf8'),
                     endereco: ip,
                     status : 'Online',
-                    ordem: impressoras.indexOf(ip)
+                    ordem: impressoras.indexOf(ip),
+                    local: resultado[8].toString('utf8')
                 })
             }
             //Roda o Callback quando todas as repostas forem coletadas
