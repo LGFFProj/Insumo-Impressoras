@@ -3,7 +3,7 @@ body{
 }
 
 .container{
-    background-color: #c2c2c2;
+    background-color: #759cb8;
     margin: auto;
     width: 98%;
     height: 88vh;
@@ -15,12 +15,12 @@ body{
     color: #2c3e50;
     text-align: center;
     display: flex;
+    background-color: #8098d3;
 }
 
 #dashboard_alertas{
-    border: 1px dashed orange;
     width: 70%;
-    
+    border-right: 2px solid black;
 }
 
 /*Estilizar a Lista de Impressoras*/
@@ -29,6 +29,7 @@ body{
     position: relative;
     top: 3%;
     font-size: larger;
+    color: black;
 }
 
 .pesquisa{
@@ -61,8 +62,9 @@ body{
 .lista_itens{
     border-bottom: 1px solid black;
     display: flex;
-    justify-content: space-around;
-    padding-left: 5%;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
     padding-top: 2px;
     padding-bottom: 2px;
     margin-top: 1px;
@@ -78,18 +80,24 @@ body{
 }
 
 #dashboard_lista{
-    border: 1px dashed green;
     width: 30%;
 }
 
 .online{
-    color: green;
+    color: greenyellow;
 }
 .offline{
     color: red;
 }
 
 /*Estilizar a Tela de Alertas*/
+
+#titulo_alerta{
+    position: relative;
+    top: 5%;
+    font-size: 30px;
+    color: black;
+}
 
 .alertas{
     position: relative;
@@ -112,15 +120,28 @@ body{
 }
 
 .alertas .itens{
-    border: 3px solid yellow;
+    
     margin: 15px;
     width: 20vh;
-    height: 29vh;
+    height: 27.5vh;
     text-align: left;
     display: flex;
     border-radius: 12px;
+    padding-bottom: 10px;
+    padding-top: 5px;
 
 }
+
+.verde{
+    border: 3px solid greenyellow;
+}
+.amarelo{
+    border: 3px solid yellow;
+}
+.vermelho{
+    border: 3px solid red;
+}
+
 
 .itens ul{
     margin: 0;
@@ -160,9 +181,16 @@ body{
 #item_setor{
     position: relative;
     top: 2%;
+    height: 30px;
 }
 
 #item_ip{
     position: relative;
     top: 2%;
+    
+}
+
+#sem_alerta{
+    padding: 15px;
+    font-size: larger;
 }

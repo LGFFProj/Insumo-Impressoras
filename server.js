@@ -7,6 +7,8 @@ const getStatus = require('./app/sortncheck.js');
 //Middleware e definições
 app.use(express.static(path.join(__dirname,'views')));
 app.set('view engine', 'ejs');
+app.use(express.json());
+
 
 app.get('/', (req,res) => {
     //Chamar a função de coleta dos dados
@@ -15,6 +17,14 @@ app.get('/', (req,res) => {
         res.render(path.join(__dirname, '/views/dashboard'),{
             resultado
         })
+    })
+});
+
+app.post('/cadastro', (req,res) =>{
+    console.log(req.body);
+    res.json({
+        ip: '1.1.1.1',
+        setor: 'DEP T.I'
     })
 })
 

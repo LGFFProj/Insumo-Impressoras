@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/container.css">
     <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/cadastro.css">
     <title>Impressoras - HRA</title>
 </head>
 <body>
@@ -28,8 +29,15 @@
         </ul>
     </div>
     <!--Conteudo do Cadastro -->
-    <div id="container_cadastro" class="container cadastro">
-        Conteudo do Cadastro
+    <div  class="container cadastro">
+        <form class="container_cadastro">
+            <div id="container_cadastro">
+                <input id="ip_cad" type="text">
+                <input id="setor_cad" type="text">
+                <div id="resposta"></div>
+                <button type="submit" onclick="cadastro()">Confirmar</button>
+            </div>
+        </form>
     </div>
     <!--Conteudo do Relatório -->
     <div id="container_relatorio" class="container relatorio">
@@ -38,19 +46,22 @@
     <!--Conteudo Dashboard -->
     <div id="container_dashboard" class="container dashboard">
         <div id="dashboard_alertas">
-            <div id="titulo_alerta">ALERTAS</div>
+            <div id="titulo_alerta">Monitor de Insumos</div>
             <div class="alertas">
-                <% resultado.forEach(element => {%>
-                    <div class="itens">
-                        <ul>
-                            <span>Toner:&nbsp</span><br><li><%=element.toner%>%<b style="width:<%=element.toner%>%;">&nbsp</b></li>
-                            <span>Manutenção:&nbsp</span><br><li><%=element.manutencao%>%<b style="width:<%=element.manutencao%>%;" >&nbsp</b></li>
-                            <span>Imagem:&nbsp</span><br><li><%=element.imagem%>%<b style="width:<%=element.imagem%>%;">&nbsp</b></li>
-                            <span id="item_setor"><%=element.local%></span>
-                            <span id="item_ip"><%=element.endereco%></span>
-                        </ul>
-                    </div>
-                <%}); %>
+                <%resultado.forEach(element => {
+                    if(element.status == 'Online'){%>
+                        <div class="itens <%if (element.toner <= 5 || element.manutencao <=5 || element.imagem <=5) {%>vermelho<%}
+                            else if((element.toner > 5 || element.manutencao > 5 || element.imagem > 5) && (element.toner <= 20 || element.manutencao <= 20 || element.imagem <= 20)){%>amarelo<%}
+                            else if(element.toner > 20 || element.manutencao > 20 || element.imagem > 20){%>verde<%}%>">
+                            <ul>
+                                <span>Toner:&nbsp</span><br><li><%=Math.round(element.toner)%>%<b style="width:<%=element.toner%>%;">&nbsp</b></li>
+                                <span>Manutenção:&nbsp</span><br><li><%=Math.round(element.manutencao)%>%<b style="width:<%=element.manutencao%>%;" >&nbsp</b></li>
+                                <span>Imagem:&nbsp</span><br><li><%=Math.round(element.imagem)%>%<b style="width:<%=element.imagem%>%;">&nbsp</b></li>
+                                <span id="item_setor"><%=element.local%></span>
+                                <span id="item_ip"><%=element.endereco%></span>
+                            </ul>
+                        </div>
+                <%}});%>
                 
                     
             </div>
@@ -63,7 +74,7 @@
                 <!--EJS Repetir para todos os itens do Array-->
                 <% resultado.forEach(element => {%>
                     <ul class="lista_itens">
-                        <div>Setor:&nbsp<li id="setor"><%=element.local%></li></div>
+                        <div>Setor:&nbsp<li id="setor"><%=element.endereco%></li></div>
                         <div>Status:&nbsp<span class="<%= element.status === 'Online' ? 'online' : 'offline' %>"><%=element.status%></span></div>
                     </ul>
                     <%}); %>
@@ -72,5 +83,6 @@
     </div>
     <script src="index.js"></script>
     <script src="barra.js"></script>
+    <script src="cadastro.js"></script>
 </body>
 </html>
