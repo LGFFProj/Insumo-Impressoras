@@ -12,7 +12,7 @@
 <body>
     <!--LOGO e TITULO -->
     <div class="header">
-        <span>EMPRESA e LOGO</span>
+        <span>Meus Ovos </span>
     </div>
     <!--MENU-->
     <div class="container-tab">
@@ -30,14 +30,12 @@
     </div>
     <!--Conteudo do Cadastro -->
     <div  class="container cadastro">
-        <form class="container_cadastro">
-            <div id="container_cadastro">
-                <input id="ip_cad" type="text">
-                <input id="setor_cad" type="text">
+            <form id="container_cadastro">
+                <input class="campos" id="ip_cad" type="text" placeholder="IP da Impressora">
+                <input class="campos" id="setor_cad" type="text" placeholder="Nome do Setor">
                 <div id="resposta"></div>
-                <button type="submit" onclick="cadastro()">Confirmar</button>
-            </div>
-        </form>
+                <button type="submit" onclick="cadastro()" id="btn_cadastro">Confirmar</button>
+            </form>
     </div>
     <!--Conteudo do Relatório -->
     <div id="container_relatorio" class="container relatorio">
@@ -74,7 +72,7 @@
                 <!--EJS Repetir para todos os itens do Array-->
                 <% resultado.forEach(element => {%>
                     <ul class="lista_itens">
-                        <div>Setor:&nbsp<li id="setor"><%=element.endereco%></li></div>
+                        <div>Setor:&nbsp<li id="setor"><%=element.local%></li></div>
                         <div>Status:&nbsp<span class="<%= element.status === 'Online' ? 'online' : 'offline' %>"><%=element.status%></span></div>
                     </ul>
                     <%}); %>

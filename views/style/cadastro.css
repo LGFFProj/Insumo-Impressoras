@@ -1,5 +1,32 @@
-.container_cadastro{
-   
+#container_cadastro{
+    margin: auto;
     width: 40%;
+    height: 60%;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.campos{
+    padding: 5px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+#btn_cadastro{
+    position: relative;
+    width: 15%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#resposta{
+    font-size: larger;
+    position: absolute;
+    top: 52%;
+    left: 43%;
+    color: black;
 }

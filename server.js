@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const PORTA = 8080;
 const getStatus = require('./app/sortncheck.js');
+const dados = require ('./app/cad_impressoras');
  
 //Middleware e definições
 app.use(express.static(path.join(__dirname,'views')));
@@ -21,11 +22,9 @@ app.get('/', (req,res) => {
 });
 
 app.post('/cadastro', (req,res) =>{
-    console.log(req.body);
-    res.json({
-        ip: '1.1.1.1',
-        setor: 'DEP T.I'
-    })
+    dados.cadastro(req.body);
+    res.json({msg : 'Impressora Cadastrada'})
+
 })
 
 
